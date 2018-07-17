@@ -8,10 +8,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoginModule } from './login/login.module';
 import { AdminModule } from './admin/admin.module';
+import { StaffModule } from './staff/staff.module';
+import { PageNotfoundComponent } from './shared/page-notfound/page-notfound.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageNotfoundComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +22,8 @@ import { AdminModule } from './admin/admin.module';
     ClarityModule,
     BrowserAnimationsModule,
     LoginModule,
-    AdminModule
+    AdminModule,
+    StaffModule
   ],
   providers: [],
   bootstrap: [AppComponent]
