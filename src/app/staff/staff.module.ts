@@ -6,6 +6,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { MainComponent } from './main/main.component';
 import { ClarityModule } from '../../../node_modules/@clr/angular';
 import { RequestComponent } from './request/request.component';
+import { AuthGuardService } from '../shared/auth-guard.service';
 
 @NgModule({
   imports: [
@@ -13,6 +14,10 @@ import { RequestComponent } from './request/request.component';
     StaffRoutingModule,
     ClarityModule
   ],
-  declarations: [LayoutComponent, MainComponent, RequestComponent]
+
+  declarations: [LayoutComponent, MainComponent, RequestComponent],
+  providers:[
+    AuthGuardService
+  ]
 })
 export class StaffModule { }

@@ -4,10 +4,14 @@ import { LayoutComponent } from './layout/layout.component';
 import { MainComponent } from './main/main.component';
 import { PageNotfoundComponent } from '../shared/page-notfound/page-notfound.component';
 import { RequestComponent } from './request/request.component';
+import { AuthGuardService } from '../shared/auth-guard.service';
 
 const routes: Routes = [
   {
     path: 'staff',
+    canActivate:[
+      AuthGuardService
+    ],
     component: LayoutComponent,
     children: [
       { path: '', redirectTo: 'main', pathMatch: 'full' },
