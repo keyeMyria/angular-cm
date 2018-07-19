@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestService } from '../request.service';
 
 @Component({
   selector: 'app-main',
@@ -6,10 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class MainComponent implements OnInit {
+  requests = [];
 
-  constructor() { }
+  constructor(private requestService: RequestService) { }
 
   ngOnInit() {
+    this.getRequest();
+  }
+
+  async getRequest() {
+    try {
+      let rs: any = await this.requestService.getRequest();
+
+      console.log(rs);
+      this.requests= rs.rows;
+
+    } catch (error) {
+
+    }
+
   }
 
 }

@@ -9,21 +9,20 @@
     <div class="header-nav">
       <a href="่javascript://" class="nav-link nav-icon" routerLink="/staff/main" routerLinkActive="active">
         <clr-icon shape="home"></clr-icon>
-    </a>
-    <a href="javascript://" class="active nav-link nav-icon" routerLink="/staff/request" routerLinkActive="active">
+      </a>
+      <a href="javascript://" class="active nav-link nav-icon" routerLink="/staff/request" routerLinkActive="active">
         <clr-icon shape="cursor-hand-click"></clr-icon>
-    </a>
+      </a>
     </div>
     <div class="header-actions">
       <clr-dropdown>
-        <button class="nav-icon" clrDropdownTrigger>
-          <clr-icon shape="cog"></clr-icon>
+        <button class="nav-text" clrDropdownTrigger>
+          {{ email }}
           <clr-icon shape="caret down"></clr-icon>
         </button>
         <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-          <a href="..." clrDropdownItem>About</a>
-          <a href="..." clrDropdownItem>Preferences</a>
-          <a href="..." clrDropdownItem>Log out</a>
+          <a href="..." clrDropdownItem>{{ fullname }}</a>
+          <a href="javascrpit://" (click)="logout()" clrDropdownItem>Log out</a>
         </clr-dropdown-menu>
       </clr-dropdown>
     </div>
@@ -41,7 +40,7 @@
         <clr-icon clrVerticalNavIcon shape="cursor-hand-click"></clr-icon>
         แจ้งซ่อม
       </a>
-      
+
     </clr-vertical-nav>
   </div>
 </div>

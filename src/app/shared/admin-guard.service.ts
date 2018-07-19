@@ -4,22 +4,23 @@ import { Router } from '../../../node_modules/@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService {
+export class AdminGuardService {
+
   jwtHelper: JwtHelperService = new JwtHelperService();
+  constructor(private router : Router) { }
 
-  constructor(private router: Router) {
-
-  }
   canActivate() {
     let token = sessionStorage.getItem('token');
     if (token) {
-      if (this.jwtHelper.isTokenExpired(token)) {
-        this.router.navigateByUrl('/login');
-      } else {
+      let decode = this.jwtHelper.decodeToken(token);
+      if (decode.usertype === 'admin') {
         return true;
+      } else {
+        this.router.navigateByUrl('/access-denied');
       }
-    }else{
+    } else {
       this.router.navigateByUrl('/login');
+      //redirect
     }
   }
 }

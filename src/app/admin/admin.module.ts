@@ -5,6 +5,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './home/home.component';
 import { ClarityModule } from '../../../node_modules/@clr/angular';
+import { AdminGuardService } from '../shared/admin-guard.service';
 
 @NgModule({
   imports: [
@@ -12,6 +13,9 @@ import { ClarityModule } from '../../../node_modules/@clr/angular';
     AdminRoutingModule,
     ClarityModule
   ],
-  declarations: [LayoutComponent, HomeComponent]
+  declarations: [LayoutComponent, HomeComponent],
+  providers:[
+    AdminGuardService
+  ]
 })
 export class AdminModule { }

@@ -1,3 +1,25 @@
-<p>
-  main works!
-</p>
+<clr-datagrid>
+  <clr-dg-column>รหัสแจ้ง</clr-dg-column>
+  <clr-dg-column>วันที่/เวลา</clr-dg-column>
+  <clr-dg-column>อาการที่แจ้ง</clr-dg-column>
+  <clr-dg-column>ประเภท</clr-dg-column>
+  <clr-dg-column>#</clr-dg-column>
+
+  <clr-dg-row *clrDgItems="let req of requests">
+    <clr-dg-cell>{{req.request_code}}</clr-dg-cell>
+    <clr-dg-cell>{{req.request_date | thaiDate }} {{req.request_time | sortTime}}</clr-dg-cell>
+    <clr-dg-cell>{{req.request_cause}}</clr-dg-cell>
+    <clr-dg-cell>{{req.request_category_name}}</clr-dg-cell>
+    <clr-dg-cell style="text-align: center;">
+      <button class="btn btn-sm btn-icon btn-success">
+        <clr-icon shape="note"></clr-icon>
+      </button>
+    </clr-dg-cell>
+  </clr-dg-row>
+
+  <clr-dg-footer>
+    <clr-dg-pagination #pagination [clrDgPageSize]="10">
+      {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} รายการ
+    </clr-dg-pagination>
+  </clr-dg-footer>
+</clr-datagrid>

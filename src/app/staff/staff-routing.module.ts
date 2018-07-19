@@ -5,12 +5,13 @@ import { MainComponent } from './main/main.component';
 import { PageNotfoundComponent } from '../shared/page-notfound/page-notfound.component';
 import { RequestComponent } from './request/request.component';
 import { AuthGuardService } from '../shared/auth-guard.service';
+import { StaffGuardService } from '../shared/staff-guard.service';
 
 const routes: Routes = [
   {
     path: 'staff',
     canActivate:[
-      AuthGuardService
+      AuthGuardService,StaffGuardService
     ],
     component: LayoutComponent,
     children: [
