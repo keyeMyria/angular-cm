@@ -8,8 +8,8 @@ export class RequestService {
 
   constructor(private http: HttpClient) { }
 
-  getRequest() {
-    return this.http.get('http://localhost:3000/request').toPromise();
+  getRequest(limit: number, offset: number) {
+    return this.http.get('http://localhost:3000/request?limit=' + limit + '&offset=' + offset).toPromise();
   }
   saveRequest(cause: string, categoryId: any, remark: any) {
     let body = {
@@ -19,4 +19,9 @@ export class RequestService {
     }
     return this.http.post('http://localhost:3000/request', body).toPromise();
   }
+
+  getLog(requestId: any) {
+    return this.http.get('http://localhost:3000/request/logs/' + requestId).toPromise();
+  }
+
 }
