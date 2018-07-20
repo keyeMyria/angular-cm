@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RequestService } from '../request.service';
 import { ClrDatagridStateInterface } from '@clr/angular';
 import { AlertService } from '../../shared/alert.service';
+import { async } from '../../../../node_modules/@types/q';
 
 @Component({
   selector: 'app-main',
@@ -63,6 +64,37 @@ export class MainComponent implements OnInit {
 
     }
     //this.isOpen = true;
+
+
+
+  }
+
+  async delRequest(request_id: any) {
+
+    await this.alertService.confirm()
+      .then(async () => {
+        // ok
+        try {
+          //console.log(request_id);
+          let rs: any = await this.requestService.delRequest(request_id);
+          console.log(rs.ok);
+          if (rs.ok) {
+            this.alertService.success();
+            this.getRequest(this.perPage, 0);
+          } else {
+            this.alertService.error();
+          }
+        } catch (error) {
+          this.alertService.error();
+
+        }
+
+
+      }).catch(() => {
+        //cancel
+
+
+      });
 
 
 

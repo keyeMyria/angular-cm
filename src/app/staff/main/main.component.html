@@ -11,9 +11,18 @@
     <clr-dg-cell>{{req.request_cause}}</clr-dg-cell>
     <clr-dg-cell>{{req.request_category_name}}</clr-dg-cell>
     <clr-dg-cell style="text-align: center;">
-      <button class="btn btn-sm btn-icon btn-success" (click)="openModal(req.request_id)">
-        <clr-icon shape="note"></clr-icon>
-      </button>
+      <div class="btn-group">
+        <button (click)="openModal(req.request_id)" class="btn btn-sm btn-icon btn-success">
+          <clr-icon shape="note"></clr-icon>
+        </button>
+        <button routerLink="/staff/request" [queryParams]="{requestId: req.request_id}" class="btn btn-sm btn-icon btn-primary">
+          <clr-icon shape="pencil"></clr-icon>
+        </button>
+        <button (click)="delRequest(req.request_id)" class="btn btn-sm btn-icon btn-danger">
+          <clr-icon shape="trash"></clr-icon>
+        </button>
+      </div>
+
     </clr-dg-cell>
   </clr-dg-row>
 

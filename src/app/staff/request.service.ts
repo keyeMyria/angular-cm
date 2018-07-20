@@ -24,4 +24,12 @@ export class RequestService {
     return this.http.get('http://localhost:3000/request/logs/' + requestId).toPromise();
   }
 
+  delRequest(requestId: any) {
+    return this.http.delete('http://localhost:3000/request/' + requestId).toPromise();
+  }
+
+  getReaquestDetail(requestId: any) {
+    return this.http.get('http://localhost:3000/request/' + requestId).toPromise();
+  }
+
 }
